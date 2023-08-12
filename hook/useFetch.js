@@ -14,9 +14,7 @@ const useFetch = (endpoint, query) => {
       "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
     },
     params: {
-      query: 'Python developer in Texas, USA',
-      page: '1',
-      num_pages: '1'
+      ...query
     },
   };
 
@@ -28,6 +26,7 @@ const useFetch = (endpoint, query) => {
 
       setData(response.data.data);
       setIsLoading(false);
+      console.log(data)
     } catch (error) {
       setError(error);
       console.log(error)
